@@ -60,7 +60,16 @@ internal class NotifyRoleDataCmd : ISendableCmd
         dataWriter.PushByte((byte)m_bag_data.m_bag_list.Count);
         foreach (var v in m_bag_data.m_bag_list)
         {
-            // serialize
+            dataWriter.PushUInt64(v.m_unique_id);
+            dataWriter.PushByte(v.m_part);
+            dataWriter.PushByte(v.m_state);
+
+            byte[] val5 = new byte[33];
+
+            byte[] unit = Encoding.UTF8.GetBytes(v.m_unit);
+            Array.Copy(unit, val5, unit.Length);
+            
+            dataWriter.PushByteArray(val5);
         }
 
         dataWriter.PushByte(m_hasInportFB);
