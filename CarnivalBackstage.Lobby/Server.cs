@@ -66,7 +66,6 @@ public class Server
         {
             try
             {
-                Console.WriteLine("Test");
                 _ = HandleConnection(await listener.AcceptTcpClientAsync());
             }
             catch (Exception ex)
