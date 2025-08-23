@@ -11,6 +11,8 @@ internal class Client
 
     public readonly byte[] encryptionKey;
 
+    public ClientSaveData saveData = null!;
+
     public Client(Server server, TcpClient tcpClient, byte[] encryptionKey)
     {
         this.server = server;

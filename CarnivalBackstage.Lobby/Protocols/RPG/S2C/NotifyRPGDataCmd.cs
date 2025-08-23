@@ -36,7 +36,7 @@ internal class NotifyRPGDataCmd : ISendableCmd
 
     public MapPoint[] m_mapPoint = new MapPoint[100];
 
-    public NotifyRPGDataCmd()
+    public NotifyRPGDataCmd(Client client)
     {
         for (int i = 0; i < m_member_slot.Length; i++) m_member_slot[i] = new();
         for (byte i = 0; i < m_mapPoint.Length; i++)
@@ -44,6 +44,13 @@ internal class NotifyRPGDataCmd : ISendableCmd
             m_mapPoint[i] = new();
             m_mapPoint[i].m_index = i;
         }
+
+        foreach (var v in client.saveData.cardList)
+            m_card_list.Add(v.Key, v.Value);
+
+        m_card_capacity = 15;
+
+        //m_member_slot[0].m_member = 1;
     }
 
     public byte[] Serialize()

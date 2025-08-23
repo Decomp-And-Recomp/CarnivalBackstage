@@ -11,9 +11,15 @@ internal static class AccountHelper
 
         await client.SendPacket(new RegisterResultCmd(RegisterResultCmd.Code.kOk).Serialize());
 
-        var rpgData = new NotifyRPGDataCmd();
-        rpgData.m_card_capacity = 35;
-        await client.SendPacket(rpgData.Serialize());
+        client.saveData = new();
+
+        await UpdateRpgData(client);
         await client.SendPacket(new NotifyRoleDataCmd().Serialize());
+    }
+
+    public static async Task UpdateRpgData(Client client)
+    {
+        NotifyRPGDataCmd rpgData = new(client);
+        await client.SendPacket(rpgData.Serialize());
     }
 }

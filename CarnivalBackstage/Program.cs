@@ -2,7 +2,7 @@ namespace CarnivalBackstage;
 
 internal static class Program
 {
-    const int port = 6780;
+    const int port = 6776;
     const int lobbyPort = 6781;
     const string idServerKey = ""; // breaks, empty works fine
 

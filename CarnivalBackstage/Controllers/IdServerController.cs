@@ -11,20 +11,28 @@ public class IdServerController : Controller
     [Route("")]
     public async Task<IActionResult> Main()
     {
-        using var reader = new StreamReader(Request.Body, Encoding.UTF8);
-        string body = await reader.ReadToEndAsync();
-
-        JsonNode node = JsonNode.Parse(body)!;
-
-        node["tid"] = "0";
-        node["serverId"] = "0";
-
-        node["user"] = new JsonObject()
+        try
         {
-            ["gamecenterId"] = string.Empty,
-            ["facebookId"] = string.Empty
-        };
+            using var reader = new StreamReader(Request.Body, Encoding.UTF8);
+            string body = await reader.ReadToEndAsync();
 
-        return Content(node.ToJsonString());
+            JsonNode node = JsonNode.Parse(body)!;
+
+            node["tid"] = "0";
+            node["serverId"] = "0";
+
+            node["user"] = new JsonObject()
+            {
+                ["gamecenterId"] = string.Empty,
+                ["facebookId"] = string.Empty
+            };
+
+            return Content(node.ToJsonString());
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex);
+            throw ex;
+        }
     }
 }

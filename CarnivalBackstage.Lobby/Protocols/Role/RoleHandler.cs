@@ -20,6 +20,9 @@ internal class RoleHandler : ProtocolHandler
             case Cmd.register_c:
                 OnRegisterRequest(client, unPacker);
                 return;
+            case Cmd.replace_save_data_c:
+                OnReplaceReqeust(client, unPacker);
+                return;
             case Cmd.sync_server_time_c:
                 OnSyncServerTimeRequest(client);
                 return;
@@ -46,7 +49,7 @@ internal class RoleHandler : ProtocolHandler
         _ = client.SendPacket(new DragConfigListResultCmd().Serialize());
     }
 
-    async void OnRegisterRequest(Client client, UnPacker unPacker)
+    static void OnRegisterRequest(Client client, UnPacker unPacker)
     {
         RegisterCmd cmd = new();
         if (!cmd.Parse(unPacker))
@@ -55,7 +58,15 @@ internal class RoleHandler : ProtocolHandler
             return;
         }
 
-        await AccountHelper.TryCreateAccount(client, cmd.nickname);
+        _ = AccountHelper.TryCreateAccount(client, cmd.nickname);
+    }
+
+    static void OnReplaceReqeust(Client client, UnPacker unPacker)
+    {
+        ReplaceSaveDataCmd cmd = new();
+        if (!cmd.Parse(unPacker)) return;
+
+        _ = client.SendPacket(new ReplaceSaveDataResultCmd(ReplaceSaveDataResultCmd.Code.kOk).Serialize());
     }
 
     void OnSyncServerTimeRequest(Client client)
