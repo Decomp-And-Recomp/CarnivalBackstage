@@ -68,5 +68,4 @@ internal enum Cmd
     modify_rpg_lv = 63,
     req_gain_all_gold_c = 64,
     req_gain_all_gold_result_s = 65
-
 }

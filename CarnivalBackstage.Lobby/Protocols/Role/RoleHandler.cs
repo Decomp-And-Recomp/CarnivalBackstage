@@ -1,4 +1,5 @@
 ﻿using CarnivalBackstage.Lobby.Binary;
+using CarnivalBackstage.Lobby.Helpers;
 using CarnivalBackstage.Lobby.Protocols.Role.C2S;
 using CarnivalBackstage.Lobby.Protocols.Role.S2C;
 
@@ -45,7 +46,7 @@ internal class RoleHandler : ProtocolHandler
         _ = client.SendPacket(new DragConfigListResultCmd().Serialize());
     }
 
-    void OnRegisterRequest(Client client, UnPacker unPacker)
+    async void OnRegisterRequest(Client client, UnPacker unPacker)
     {
         RegisterCmd cmd = new();
         if (!cmd.Parse(unPacker))
@@ -54,9 +55,7 @@ internal class RoleHandler : ProtocolHandler
             return;
         }
 
-        _ = client.SendPacket(new RegisterResultCmd(RegisterResultCmd.Code.kOk).Serialize());
-        //_ = client.SendPacket(new UploadRoleDataResultCmd(UploadRoleDataResultCmd.Code.kOk).Serialize());
-        _ = client.SendPacket(new NotifyRoleDataCmd().Serialize());
+        await AccountHelper.TryCreateAccount(client, cmd.nickname);
     }
 
     void OnSyncServerTimeRequest(Client client)
