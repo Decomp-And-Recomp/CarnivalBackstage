@@ -1,0 +1,42 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34728.123
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarnivalBackstage", "CarnivalBackstage\CarnivalBackstage.csproj", "{4956C8AB-B7B5-4FB4-8603-C5AAE472311C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarnivalBackstage.Lobby", "CarnivalBackstage.Lobby\CarnivalBackstage.Lobby.csproj", "{8C9613FE-C7CF-4DAD-BC49-4A24C331D99B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarnivalBackstage.Shared", "CarnivalBackstage.Shared\CarnivalBackstage.Shared.csproj", "{EB7B69DA-5D4D-42D4-81CC-1CAFF17933B8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A65C7852-F2DC-4DEB-A1D3-730E5A9027A1}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4956C8AB-B7B5-4FB4-8603-C5AAE472311C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4956C8AB-B7B5-4FB4-8603-C5AAE472311C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4956C8AB-B7B5-4FB4-8603-C5AAE472311C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4956C8AB-B7B5-4FB4-8603-C5AAE472311C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C9613FE-C7CF-4DAD-BC49-4A24C331D99B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C9613FE-C7CF-4DAD-BC49-4A24C331D99B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C9613FE-C7CF-4DAD-BC49-4A24C331D99B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C9613FE-C7CF-4DAD-BC49-4A24C331D99B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB7B69DA-5D4D-42D4-81CC-1CAFF17933B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB7B69DA-5D4D-42D4-81CC-1CAFF17933B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB7B69DA-5D4D-42D4-81CC-1CAFF17933B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB7B69DA-5D4D-42D4-81CC-1CAFF17933B8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3E0F7399-AE00-418B-8450-60369C768932}
+	EndGlobalSection
+EndGlobal
