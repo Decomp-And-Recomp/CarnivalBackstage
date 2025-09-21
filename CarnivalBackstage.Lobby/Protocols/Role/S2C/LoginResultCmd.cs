@@ -4,7 +4,7 @@ namespace CarnivalBackstage.Lobby.Protocols.Role.S2C;
 
 internal class LoginResultCmd : ISendableCmd
 {
-    public enum Code
+    public enum Code : byte
     {
         kOk = 0,
         kNeedRegister = 1,
@@ -22,7 +22,7 @@ internal class LoginResultCmd : ISendableCmd
     {
         BufferWriter p = new();
 
-        Header h = new(1, 1);
+        Header h = new((byte)ProtoID.ROLE, (byte)Cmd.login_result_s);
         h.SetBodyLength(1);
         h.Serialize(p);
 

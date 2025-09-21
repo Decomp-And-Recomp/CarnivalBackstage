@@ -20,6 +20,48 @@ internal class Header
         m_cCmd = cmd;
     }
 
+    public Header(Protocols.Common.Cmd cmd)
+    {
+        m_cProtocol = 0;
+        m_cCmd = (byte)cmd;
+    }
+
+    public Header(Protocols.Role.Cmd cmd)
+    {
+        m_cProtocol = 1;
+        m_cCmd = (byte)cmd;
+    }
+    
+    public Header(Protocols.Shop.Cmd cmd)
+    {
+        m_cProtocol = 2;
+        m_cCmd = (byte)cmd;
+    }
+
+    public Header(Protocols.Hall.Cmd cmd)
+    {
+        m_cProtocol = 3;
+        m_cCmd = (byte)cmd;
+    }
+
+    public Header(Protocols.Mail.Cmd cmd)
+    {
+        m_cProtocol = 4;
+        m_cCmd = (byte)cmd;
+    }
+
+    public Header(Protocols.Rank.Cmd cmd)
+    {
+        m_cProtocol = 5;
+        m_cCmd = (byte)cmd;
+    }
+
+    public Header(Protocols.RPG.Cmd cmd)
+    {
+        m_cProtocol = 7;
+        m_cCmd = (byte)cmd;
+    }
+
     public virtual void SetBodyLength(int body_length)
     {
         m_iLength = (uint)(10 + body_length);

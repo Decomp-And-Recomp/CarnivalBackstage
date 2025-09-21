@@ -15,7 +15,7 @@ internal class SessionKeyCmd : ISendableCmd
     {
         BufferWriter p = new();
 
-        Header h = new(0, 1);
+        Header h = new(0, (byte)Cmd.session_key_cs);
         h.SetBodyLength(key.Length + 2);
         h.Serialize(p);
 

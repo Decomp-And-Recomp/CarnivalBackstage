@@ -4,7 +4,7 @@ namespace CarnivalBackstage.Lobby.Protocols.Hall.S2C;
 
 internal class EnterHallResultCmd : ISendableCmd
 {
-    public enum Code
+    public enum Code : byte
     { 
         kOk = 0,
         kNoChange = 1
@@ -21,7 +21,7 @@ internal class EnterHallResultCmd : ISendableCmd
     {
         BufferWriter p = new();
 
-        Header h = new(3, 1);
+        Header h = new((byte)ProtoID.HALL, (byte)Cmd.enter_hall_result_s);
         h.SetBodyLength(1);
         h.Serialize(p);
 

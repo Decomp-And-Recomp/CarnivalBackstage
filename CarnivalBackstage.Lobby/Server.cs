@@ -42,6 +42,8 @@ public class Server
     {
         this.port = port;
         listener = new(IPAddress.Any, port);
+
+        GameConfig.Init();
     }
 
     public async Task Run()

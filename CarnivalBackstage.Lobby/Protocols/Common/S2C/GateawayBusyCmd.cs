@@ -8,7 +8,7 @@ internal class GateawayBusyCmd : ISendableCmd
     {
         BufferWriter p = new();
 
-        Header h = new(0, 3);
+        Header h = new(Cmd.gateway_busy_s);
         h.SetBodyLength(0);
         h.Serialize(p);
 

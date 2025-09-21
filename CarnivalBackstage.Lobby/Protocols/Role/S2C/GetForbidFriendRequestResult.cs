@@ -15,7 +15,7 @@ internal class GetForbidFriendRequestResult : ISendableCmd
     {
         BufferWriter p = new();
 
-        Header h = new(1, 80);
+        Header h = new((byte)ProtoID.ROLE, (byte)Cmd.get_forbid_friend_request_result_s);
         h.SetBodyLength(1);
         h.Serialize(p);
 

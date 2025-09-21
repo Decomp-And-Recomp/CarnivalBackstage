@@ -8,7 +8,7 @@ internal class GetAllModelNumResultCmd : ISendableCmd
     {
         BufferWriter p = new();
 
-        Header h = new(1, 77);
+        Header h = new((byte)ProtoID.ROLE, (byte)Cmd.get_all_model_num_result_s);
         h.SetBodyLength(1);
         h.Serialize(p);
 

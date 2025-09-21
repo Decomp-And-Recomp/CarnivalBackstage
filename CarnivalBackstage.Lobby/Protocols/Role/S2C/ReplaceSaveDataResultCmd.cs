@@ -4,7 +4,7 @@ namespace CarnivalBackstage.Lobby.Protocols.Role.S2C;
 
 internal class ReplaceSaveDataResultCmd : ISendableCmd
 {
-    public enum Code
+    public enum Code : byte
     {
         kOk = 0
     }
@@ -20,7 +20,7 @@ internal class ReplaceSaveDataResultCmd : ISendableCmd
     {
         BufferWriter p = new();
 
-        Header h = new(1, 55);
+        Header h = new((byte)ProtoID.ROLE, (byte)Cmd.replace_save_data_result_s);
         h.SetBodyLength(1);
         h.Serialize(p);
 

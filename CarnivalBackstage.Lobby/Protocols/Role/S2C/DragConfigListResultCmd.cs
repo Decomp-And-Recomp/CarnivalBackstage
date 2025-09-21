@@ -37,7 +37,7 @@ internal class DragConfigListResultCmd : ISendableCmd
 
         BufferWriter p = new();
 
-        Header h = new(1, 4);
+        Header h = new((byte)ProtoID.ROLE, (byte)Cmd.drag_config_list_result_s);
         byte[] data = dataWriter.ToByteArray();
         h.SetBodyLength(data.Length);
         h.Serialize(p);

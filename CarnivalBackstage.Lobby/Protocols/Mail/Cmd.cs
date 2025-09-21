@@ -1,6 +1,6 @@
 ﻿namespace CarnivalBackstage.Lobby.Protocols.Mail;
 
-internal enum Cmd
+internal enum Cmd : byte
 {
     drag_mail_list_c = 0,
     drag_mail_list_result_s = 1,

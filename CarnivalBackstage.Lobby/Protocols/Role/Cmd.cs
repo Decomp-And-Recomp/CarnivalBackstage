@@ -1,6 +1,6 @@
 ﻿namespace CarnivalBackstage.Lobby.Protocols.Role;
 
-internal enum Cmd
+internal enum Cmd : byte
 {
     login_c = 0,
     login_result_s = 1,

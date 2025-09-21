@@ -2,6 +2,7 @@
 using CarnivalBackstage.Lobby.Helpers;
 using CarnivalBackstage.Lobby.Protocols.Role.C2S;
 using CarnivalBackstage.Lobby.Protocols.Role.S2C;
+using System.Diagnostics;
 
 namespace CarnivalBackstage.Lobby.Protocols.Role;
 
@@ -16,6 +17,9 @@ internal class RoleHandler : ProtocolHandler
                 return;
             case Cmd.drag_config_list_c:
                 OnDragConfigListRequest(client);
+                return;
+            case Cmd.drag_config_file_c:
+                OnDragConfigFile(client, unPacker);
                 return;
             case Cmd.register_c:
                 OnRegisterRequest(client, unPacker);
@@ -47,6 +51,25 @@ internal class RoleHandler : ProtocolHandler
     void OnDragConfigListRequest(Client client)
     {
         _ = client.SendPacket(new DragConfigListResultCmd().Serialize());
+    }
+
+    void OnDragConfigFile(Client client, UnPacker unPacker)
+    {
+        DragConfigFileCmd request = new();
+
+        if (!request.Parse(unPacker)) return;
+
+        if (!GameConfig.TryGetConfig(request.filename, out byte[]? config))
+        {
+            Console.WriteLine($"Warning: Config not found, potential soft lock: '{request.filename}'");
+            return;
+        }
+
+        DragConfigFileResultCmd result = new();
+        result.filename = request.filename;
+        result.data = config;
+
+        _ = client.SendPacket(result.Serialize());
     }
 
     static void OnRegisterRequest(Client client, UnPacker unPacker)

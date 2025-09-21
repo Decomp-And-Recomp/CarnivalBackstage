@@ -5,7 +5,7 @@ namespace CarnivalBackstage.Lobby.Protocols.Role.S2C;
 
 internal class UploadRoleDataResultCmd : ISendableCmd
 {
-    public enum Code
+    public enum Code : byte
     {
         kOk = 0,
         kError = 1
@@ -22,7 +22,7 @@ internal class UploadRoleDataResultCmd : ISendableCmd
     {
         BufferWriter p = new();
 
-        Header h = new(1, 14);
+        Header h = new((byte)ProtoID.ROLE, (byte)Cmd.upload_role_data_result_s);
         h.SetBodyLength(1);
         h.Serialize(p);
 

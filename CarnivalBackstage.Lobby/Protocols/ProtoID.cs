@@ -1,6 +1,6 @@
 ﻿namespace CarnivalBackstage.Lobby.Protocols;
 
-internal enum ProtoID
+internal enum ProtoID : byte
 {
     COMMON = 0,
     ROLE = 1,

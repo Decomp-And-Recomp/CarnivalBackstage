@@ -17,7 +17,7 @@ internal class SyncServerTimeResultCmd : ISendableCmd
     {
         BufferWriter p = new();
 
-        Header h = new(1, 71);
+        Header h = new((byte)ProtoID.ROLE, (byte)Cmd.sync_server_time_result_s);
         h.SetBodyLength(8);
         h.Serialize(p);
 

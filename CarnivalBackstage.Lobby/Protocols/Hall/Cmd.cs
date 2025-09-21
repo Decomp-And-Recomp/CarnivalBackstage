@@ -1,6 +1,6 @@
 ﻿namespace CarnivalBackstage.Lobby.Protocols.Hall;
 
-internal enum Cmd
+internal enum Cmd : byte
 {
     enter_hall_c = 0,
     enter_hall_result_s = 1,

@@ -1,6 +1,6 @@
 ﻿namespace CarnivalBackstage.Lobby.Protocols.Rank;
 
-internal enum Cmd
+internal enum Cmd : byte
 {
     update_score_c = 0,
     update_score_result_s = 1,

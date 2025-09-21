@@ -39,16 +39,24 @@ internal class NotifyRPGDataCmd : ISendableCmd
     public NotifyRPGDataCmd(Client client)
     {
         for (int i = 0; i < m_member_slot.Length; i++) m_member_slot[i] = new();
+        //m_member_slot[0].m_member = 25;
+        //m_member_slot[1].m_member = 16;
+        //m_member_slot[2].m_member = 17;
+
         for (byte i = 0; i < m_mapPoint.Length; i++)
         {
             m_mapPoint[i] = new();
             m_mapPoint[i].m_index = i;
         }
 
+        m_mapPoint[0].m_status = 1;
+
         foreach (var v in client.saveData.cardList)
             m_card_list.Add(v.Key, v.Value);
 
-        m_card_capacity = 15;
+        m_card_capacity = 25;
+        m_jewel_capacity = 25;
+        m_equip_capacity = 25;
 
         //m_member_slot[0].m_member = 1;
     }

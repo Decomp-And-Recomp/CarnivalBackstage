@@ -24,7 +24,6 @@ internal class NotifyRoleDataCmd : ISendableCmd
     {
         BufferWriter dataWriter = new();
 
-
         dataWriter.PushUInt32(m_info.m_player_id);
 
         byte[] facebookId = new byte[33];
@@ -89,7 +88,7 @@ internal class NotifyRoleDataCmd : ISendableCmd
         dataWriter.PushByteArray(m_save_data);
 
         BufferWriter packetWriter = new();
-        Header h = new(1, 15);
+        Header h = new((byte)ProtoID.ROLE, (byte)Cmd.notify_roledata_s);
         byte[] data = dataWriter.ToByteArray();
         h.SetBodyLength(data.Length);
         h.Serialize(packetWriter);

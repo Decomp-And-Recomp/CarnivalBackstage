@@ -14,7 +14,10 @@ internal static class AccountHelper
         client.saveData = new();
 
         await UpdateRpgData(client);
-        await client.SendPacket(new NotifyRoleDataCmd().Serialize());
+
+        var data = new NotifyRoleDataCmd();
+        data.m_bag_data.m_bag_capacity = 25;
+        await client.SendPacket(data.Serialize());
     }
 
     public static async Task UpdateRpgData(Client client)
